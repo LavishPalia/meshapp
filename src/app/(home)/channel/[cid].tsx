@@ -36,7 +36,6 @@ const ChannelScreen = () => {
       <SafeAreaView edges={['bottom']}>
         <MessageInput />
       </SafeAreaView>
-      {/* <MessageInput /> */}
     </Channel>
   );
 };
