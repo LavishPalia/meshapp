@@ -4,6 +4,7 @@ import { StyleSheet, View, Alert } from "react-native";
 import { Button, Input } from "@rneui/themed";
 import { useAuth } from "@/src/providers/AuthProvider";
 import { ScrollView } from "react-native-gesture-handler";
+import Avatar from "@/src/components/Avatar";
 
 export default function ProfileScreen() {
   const [loading, setLoading] = useState(true);
@@ -87,6 +88,21 @@ export default function ProfileScreen() {
 
   return (
     <ScrollView style={styles.container}>
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <Avatar
+          size={200}
+          url={avatarUrl}
+          onUpload={(url: string) => {
+            setAvatarUrl(url);
+            updateProfile({
+              username,
+              website,
+              avatar_url: url,
+              full_name: fullname,
+            });
+          }}
+        />
+      </View>
       <View style={styles.verticallySpaced}>
         <Input
           label="Full Name"
@@ -127,7 +143,7 @@ export default function ProfileScreen() {
         />
       </View>
 
-      <View style={styles.verticallySpaced}>
+      <View style={[styles.verticallySpaced, styles.mb40]}>
         <Button title="Sign Out" onPress={() => supabase.auth.signOut()} />
       </View>
     </ScrollView>
@@ -136,8 +152,8 @@ export default function ProfileScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
-    padding: 12,
+    paddingVertical: 40,
+    paddingHorizontal: 12,
   },
   verticallySpaced: {
     paddingTop: 4,
@@ -146,5 +162,8 @@ const styles = StyleSheet.create({
   },
   mt20: {
     marginTop: 20,
+  },
+  mb40: {
+    marginBottom: 40,
   },
 });

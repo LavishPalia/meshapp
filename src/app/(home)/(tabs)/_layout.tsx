@@ -5,7 +5,13 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 const TabsNavigator = () => {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "#00FF0065" }}>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: "#00FF0065",
+        headerTitleAlign: "center",
+        tabBarShowLabel: false,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
