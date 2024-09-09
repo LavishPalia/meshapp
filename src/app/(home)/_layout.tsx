@@ -1,13 +1,20 @@
-import React from 'react';
-import { Stack } from 'expo-router';
+import React from "react";
+import { Redirect, Stack } from "expo-router";
 
-import ChatProvider from '../../providers/ChatProvider';
+import ChatProvider from "../../providers/ChatProvider";
+import { useAuth } from "@/src/providers/AuthProvider";
 
 const HomeLayout = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Redirect href="/(auth)/login" />;
+  }
+
   return (
     <ChatProvider>
       <Stack>
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>
     </ChatProvider>
   );
