@@ -8,10 +8,19 @@ import {
 } from "react";
 import { supabase } from "../lib/supabase";
 
+export type Profile = {
+  id: string;
+  updated_at: string;
+  username: string;
+  full_name: string;
+  avatar_url: string;
+  website: string;
+};
+
 type AuthContext = {
   session: Session | null;
   user: User | undefined;
-  profile: any | null;
+  profile: Profile | null;
 };
 
 const AuthContext = createContext<AuthContext>({

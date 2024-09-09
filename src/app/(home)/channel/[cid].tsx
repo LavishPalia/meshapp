@@ -1,14 +1,14 @@
-import { useLocalSearchParams } from 'expo-router';
-import React, { useEffect, useState } from 'react';
-import { ActivityIndicator } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Channel as ChannelType } from 'stream-chat';
+import { useLocalSearchParams } from "expo-router";
+import React, { useEffect, useState } from "react";
+import { ActivityIndicator } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Channel as ChannelType } from "stream-chat";
 import {
   Channel,
   MessageInput,
   MessageList,
   useChatContext,
-} from 'stream-chat-expo';
+} from "stream-chat-expo";
 
 const ChannelScreen = () => {
   const [channel, setChannel] = useState<ChannelType | null>(null);
@@ -33,7 +33,7 @@ const ChannelScreen = () => {
   return (
     <Channel channel={channel}>
       <MessageList />
-      <SafeAreaView edges={['bottom']}>
+      <SafeAreaView edges={["bottom"]}>
         <MessageInput />
       </SafeAreaView>
     </Channel>
