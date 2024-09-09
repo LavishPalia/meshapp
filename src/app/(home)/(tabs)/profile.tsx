@@ -3,6 +3,7 @@ import { supabase } from "../../../lib/supabase";
 import { StyleSheet, View, Alert } from "react-native";
 import { Button, Input } from "@rneui/themed";
 import { useAuth } from "@/src/providers/AuthProvider";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function ProfileScreen() {
   const [loading, setLoading] = useState(true);
@@ -85,7 +86,7 @@ export default function ProfileScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.verticallySpaced}>
         <Input
           label="Full Name"
@@ -129,7 +130,7 @@ export default function ProfileScreen() {
       <View style={styles.verticallySpaced}>
         <Button title="Sign Out" onPress={() => supabase.auth.signOut()} />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

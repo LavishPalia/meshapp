@@ -1,26 +1,26 @@
-import React from 'react';
-import { Tabs } from 'expo-router';
+import React from "react";
+import { Tabs } from "expo-router";
 
-import Ionicons from '@expo/vector-icons/Ionicons';
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const TabsNavigator = () => {
   return (
-    <Tabs>
+    <Tabs screenOptions={{ tabBarActiveTintColor: "#00FF0065" }}>
       <Tabs.Screen
-        name='index'
+        name="index"
         options={{
-          title: 'Chats',
+          title: "Chats",
           tabBarIcon: ({ size, color }) => (
-            <Ionicons name='chatbubble-sharp' size={size} color={color} />
+            <Ionicons name="chatbubble-sharp" size={size} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name='profile'
+        name="profile"
         options={{
-          title: 'Profile',
+          title: "Profile",
           tabBarIcon: ({ size, color }) => (
-            <Ionicons name='person' size={size} color={color} />
+            <Ionicons name="person" size={size} color={color} />
           ),
         }}
       />
